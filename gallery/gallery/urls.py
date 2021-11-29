@@ -20,5 +20,5 @@ from django.conf.urls import url,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^news/',include('news.urls'))
+    url(r'^images/',include('images.urls'))
 ]
