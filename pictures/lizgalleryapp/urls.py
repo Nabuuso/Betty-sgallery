@@ -4,8 +4,8 @@ from . import views
 
 urlpatterns=[
     path('', views.index),
-    path(r'^search/', views.search_images, name='search_results'),
-    path(r'^image/(\d+)', views.get_image, name='image_results'),
-    path(r'^location/(?P<location>\w{0,50})/', views.location, name='location_results'),
-    path(r'^category/(?P<category>\w{0,50})/', views.category, name='category_results'),
+    path('search/', views.search_images, name='search_results'),
+    path('results/', views.get_image, name='image_results'),
+    path('location/', views.location, name='location_results'),
+    path('category/', views.category, name='category_results'),
 ]

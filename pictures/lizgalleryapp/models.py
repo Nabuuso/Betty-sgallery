@@ -3,23 +3,24 @@ from django.db import models
 from django.http.response import Http404
 
 # Create your models here.
-class Image(models.Model):
-    caption=models.CharField(max_length=50)
-    Image=models.ImageField(upload_to="img/%y")
+# class Image(models.Model):
+#     caption=models.CharField(max_length=50)
+#     Image=models.ImageField(upload_to="img/%y")
+#     location = models.CharField(max_length= 100, blank =True)
     
-    def save_Image(self):
-        self.save()
+#     def save_Image(self):
+#         self.save()
     
-    def delete_Image(self):
-        self.delete()
+#     def delete_Image(self):
+#         self.delete()
         
-    @classmethod
-    def get_images(cls):
-        images = cls.objects.all()
-        return images
+#     @classmethod
+#     def get_images(cls):
+#         images = cls.objects.all()
+#         return images
     
-    def __str__(self):
-        return self.caption
+#     def __str__(self):
+#         return self.caption
     
 class Location(models.Model):
     location = models.CharField(max_length= 100, blank =True)
@@ -71,14 +72,13 @@ class Category(models.Model):
     
     
 class Image(models.Model):
-    image_name = models.CharField(max_length=255)
-    description = models.TextField()
-    image_file = models.ImageField(upload_to = 'images/', default='images/beagle.jpg')
-    post = models.TextField()
-    post = models.TextField()
-    location = models.ForeignKey(Location, on_delete=models.CASCADE)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    pub_date = models.DateTimeField(auto_now_add=True)
+    image_name = models.CharField(max_length=255, null=True)
+    description = models.TextField(null=True)
+    image_file = models.ImageField(upload_to = 'images/', default='images/beagle.jpg', null=True)
+    post = models.TextField(null=True)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE, null=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
+    pub_date = models.DateTimeField(auto_now_add=True, null=True)
        
     
     @classmethod
