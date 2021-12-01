@@ -11,12 +11,12 @@ from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
 def index(request):
+    date = dt.date.today()
     pics = Image.objects.all()
-    return render(request, 'index.html', {"pics":pics})
-    # location = Location.get_location()
-    # locations = Location.get_location()
+    location = Location.get_location()
+    locations = Location.get_location()
+    return render(request, 'index.html', {"pics":pics, "location": location, "locations": locations})
 
-    # return render(request, 'index.html', {"date": date, "images":images, "location": location, "locations": locations})
 
 def search_images(request):
     locations = Location.get_location()
