@@ -7,12 +7,22 @@ class Image(models.Model):
     caption=models.CharField(max_length=50)
     Image=models.ImageField(upload_to="img/%y")
     
+    def save_image(self):
+        self.save()
+    
+    def delete_image(self):
+        self.delete()
+        
+    @classmethod
+    def get_images(cls):
+        images = cls.objects.all()
+        return images
     
     def __str__(self):
         return self.caption
     
 class Location(models.Model):
-    location = models.CharField(max_length= 255, blank =True)
+    location = models.CharField(max_length= 100, blank =True)
     
     def save_location(self):
         self.save()
@@ -33,7 +43,7 @@ class Location(models.Model):
         verbose_name_plural = 'Locations'
         
 class Category(models.Model):
-    category = models.CharField(max_length= 255)
+    category = models.CharField(max_length= 150)
     
     def save_category(self):
         self.save()
@@ -62,23 +72,13 @@ class Category(models.Model):
 class Image(models.Model):
     image_name = models.CharField(max_length=255)
     description = models.TextField()
-    image_file = models.ImageField(upload_to = 'images/', default='images/beagle.jpg')
+    image_file = models.ImageField(upload_to="img/%y")
     post = models.TextField()
     post = models.TextField()
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     pub_date = models.DateTimeField(auto_now_add=True)
        
-    def save_image(self):
-        self.save()
-    
-    def delete_image(self):
-        self.delete()
-        
-    @classmethod
-    def get_images(cls):
-        images = cls.objects.all()
-        return images
     
     @classmethod
     def search_by_categ(cls, search_term):
