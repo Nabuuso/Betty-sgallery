@@ -13,7 +13,7 @@
   <body>
     <h1>LIZA'S gallery</h1>
     <div class= "container">
-        {% for x in pics%}
+        {% for x in Images%}
         <img src ="{{ x.Image.url }}" class="img-fluid" alt="Responsive image">
         <p class="lead">{{x.caption}}</p><hr>
         {% endfor %}

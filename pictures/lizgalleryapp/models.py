@@ -7,10 +7,10 @@ class Image(models.Model):
     caption=models.CharField(max_length=50)
     Image=models.ImageField(upload_to="img/%y")
     
-    def save_image(self):
+    def save_Image(self):
         self.save()
     
-    def delete_image(self):
+    def delete_Image(self):
         self.delete()
         
     @classmethod
@@ -45,6 +45,7 @@ class Location(models.Model):
 class Category(models.Model):
     category = models.CharField(max_length= 150)
     
+    
     def save_category(self):
         self.save()
 
@@ -72,7 +73,7 @@ class Category(models.Model):
 class Image(models.Model):
     image_name = models.CharField(max_length=255)
     description = models.TextField()
-    image_file = models.ImageField(upload_to="img/%y")
+    image_file = models.ImageField(upload_to = 'images/', default='images/beagle.jpg')
     post = models.TextField()
     post = models.TextField()
     location = models.ForeignKey(Location, on_delete=models.CASCADE)
@@ -114,4 +115,6 @@ class Image(models.Model):
         ordering = ['image_name']
         verbose_name = 'My image'
         verbose_name_plural = 'Images'
+        
+
         

@@ -1,8 +1,7 @@
 from django.shortcuts import render
 from django.templatetags.static import static
-from django.shortcuts import render, redirect, render_to_response
-from django.http import HttpResponse, Http404
-import datetime as dt
+from django.shortcuts import render
+from django.http import Http404
 from .models import Location, Image, Category
 from django.core.exceptions import ObjectDoesNotExist
 
@@ -11,11 +10,10 @@ from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
 def index(request):
-    date = dt.date.today()
-    pics = Image.objects.all()
+    images = Image.objects.all()
     location = Location.get_location()
     locations = Location.get_location()
-    return render(request, 'index.html', {"pics":pics, "location": location, "locations": locations})
+    return render(request, 'index.html', {"images":images, "location": location, "locations": locations})
 
 
 def search_images(request):
@@ -41,7 +39,7 @@ def get_image(request, id):
         except ObjectDoesNotExist:
             raise Http404()
         
-        return render(request, "images.html", {"image":image, "locations":locations})
+        return render(request, "images.html", { "image":image,"locations":locations})
     
     
 def location(request, location):
@@ -53,9 +51,10 @@ def location(request, location):
 
 def category(request, category):
     images = Image.get_by_category(category)
+    category = Category.get_location()
     locations = Location.get_location()
     message = f"{category}"
-    return render(request, 'category.html', {"message":message, "images":images, "locations":locations})
+    return render(request, 'category.html', {"message":message,"image":images, "locations":locations})
 
 
 def navlocation(request):
