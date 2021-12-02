@@ -8,13 +8,13 @@
     {% if images %}
     <div class="jumbotron jumbotron-fluid bg-light">
             <div class="">
-              <h2 class="display-5 text-center font-weight-bold text-dark">Found {{ images|length }} images for  {{message}}</h2>
+              <h2 class="display-5 text-center font-weight-bold text-dark">{{ images|length }} images for  {{message}}</h2>
             </div>
     </div>
     {% else %}
     <div class="jumbotron jumbotron-fluid bg-light">
             <div class="">
-              <h2 class="display-5 text-center font-weight-bold text-dark">Found 0 images for the {{message}}</h2>
+              <h2 class="display-5 text-center font-weight-bold text-dark">0 images for the {{message}}</h2>
             </div>
     </div>
     {% endif %}
