@@ -6,18 +6,57 @@
 
 <div class="">
 
-        <!-- Looping through image   -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <div class="card" style="width: 18rem;">
+    <img src="https://shweshwe1.com/wp-content/uploads/2019/07/tryrty54.jpg" class="card-img-top" alt="woman">
+    <div class="card-body">
+      <h5 class="card-title">DESIGN</h5>
+      <p class="card-text">Although the phrase is nonsense, it does have a long history. The phrase has been used for several centuries by typographers to show the most distinctive features of their fonts.</p>
+      <a href="http://127.0.0.1:8000/search/?keyword=design" class="btn btn-warning">check category</a>
+    </div>
+  </div>
+
+      </div>
+      <div class="col-sm">
+        <div class="card" style="width: 18rem;">
+    <img src="https://d1ralsognjng37.cloudfront.net/4e400e36-a448-4447-b0df-fef6d7f7a373.jpeg" class="card-img-top" alt="food">
+    <div class="card-body">
+      <h5 class="card-title">FOOD</h5>
+      <p class="card-text">Although the phrase is nonsense, it does have a long history. The phrase has been used for several centuries by typographers to show the most distinctive features of their fonts.</p>
+      <a href="http://127.0.0.1:8000/search/?keyword=food" class="btn btn-warning">check category</a>
+    </div>
+  </div>
+
+      </div>
+      <div class="col-sm">
+        <div class="card" style="width: 18rem;">
+    <img src="https://cdn11.bigcommerce.com/s-x49po/images/stencil/1280x1280/products/54676/75596/1581842672937_IMG_20200209_230216__03206.1599307776.jpg?c=2" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">CULTURE</h5>
+      <p class="card-text">Although the phrase is nonsense, it does have a long history. The phrase has been used for several centuries by typographers to show the most distinctive features of their fonts.</p>
+      <a href="http://127.0.0.1:8000/search/?keyword=culture" class="btn btn-warning">check category</a>
+    </div>
+  </div>
+
+      </div>
+    </div>
+  </div>
+
+        {% comment %} <!-- Looping through image   -->
         <div class="container-fluid">
           
             <div class="grid">
               <div class="grid-sizer"></div>
                 {% for x in images %}
-                <img src ="{{ x.Image.url }}" class="img-fluid" alt="Responsive image">
+                <img src ="{{ x.image.url }}" class="img-fluid" alt="Responsive image">
                 <p class="lead">{{x.caption}}</p><hr>
                 {% endfor %}
               </div>          
             </div>
-          
+           {% endcomment %}
        
                     <!-- Modal starts here -->
           {% for image_item in images %}
