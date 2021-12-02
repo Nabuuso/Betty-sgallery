@@ -35,7 +35,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterModelOptions(
             name='image',
-            options={'ordering': ['image_name'], 'verbose_name': 'My image', 'verbose_name_plural': 'Images'},
+            options={'ordering': ['image_name'], 'verbose_name': 'My gallery', 'verbose_name_plural': 'galleries'},
         ),
         migrations.RemoveField(
             model_name='image',
@@ -53,7 +53,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='image',
             name='image_file',
-            field=models.ImageField(default='images/beagle.jpg', null=True, upload_to='images/'),
+            field=models.ImageField(null=True, upload_to='Images/'),
         ),
         migrations.AddField(
             model_name='image',

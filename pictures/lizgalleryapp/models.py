@@ -74,7 +74,7 @@ class Category(models.Model):
 class Image(models.Model):
     image_name = models.CharField(max_length=255, null=True)
     description = models.TextField(null=True)
-    image_file = models.ImageField(upload_to = 'images/', default='images/beagle.jpg', null=True)
+    image_file = models.ImageField(upload_to = 'Images', null=True)
     post = models.TextField(null=True)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
@@ -113,7 +113,7 @@ class Image(models.Model):
     
     class Meta:
         ordering = ['image_name']
-        verbose_name = 'My image'
+        verbose_name = 'My gallery'
         verbose_name_plural = 'Images'
         
 

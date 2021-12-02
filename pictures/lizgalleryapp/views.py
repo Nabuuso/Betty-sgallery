@@ -39,7 +39,7 @@ def get_image(request, id):
         except ObjectDoesNotExist:
             raise Http404()
         
-        return render(request, "images.html", { "image":image,"locations":locations})
+        return render(request, "index.html", { "image":image,"locations":locations})
     
     
 def location(request, location):
@@ -51,7 +51,7 @@ def location(request, location):
 
 def category(request, category):
     images = Image.get_by_category(category)
-    category = Category.get_location()
+    category = Category.get_category()
     locations = Location.get_location()
     message = f"{category}"
     return render(request, 'category.html', {"message":message,"image":images, "locations":locations})

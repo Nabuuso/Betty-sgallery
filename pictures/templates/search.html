@@ -6,15 +6,15 @@
 
   <div class="">
     {% if images %}
-    <div class="jumbotron jumbotron-fluid bg-dark">
+    <div class="jumbotron jumbotron-fluid bg-light">
         <div class="">
-          <h2 class="display-5 text-center font-weight-bold text-white">Found {{ images|length }} images for searched term {{message}}</h2>
+          <h2 class="display-5 text-center font-weight-bold text-dark">Found {{ images|length }} images for searched term {{message}}</h2>
         </div>
       </div>
     {% else %}
-    <div class="jumbotron jumbotron-fluid bg-dark">
+    <div class="jumbotron jumbotron-fluid bg-light">
         <div class="">
-          <h2 class="display-5 text-center font-weight-bold text-white">Found 0 images for the searched term {{message}}</h2>
+          <h2 class="display-5 text-center font-weight-bold text-dark">Found 0 images for the searched term {{message}}</h2>
         </div>
       </div>
     {% endif %}
@@ -64,11 +64,7 @@
                                 <p>Posted: {{image_item.pub_date|timesince}} ago, <br> Location: <a href="/location/{{image_item.location}}"> {{ image_item.location }} </a> <br>
                                  <span> Category: <a href="/category/{{image_item.category}}"> {{ image_item.category}} </a></span>
                                 </p>
-                                <!-- The text field -->
-                                    Copy Image Link: <input class="form-control form-control-sm" type="text" value="https://jogallery.herokuapp.com/image/{{image_item.id}}" id="{{image_item.id}}" readonly="readonly">
-        
-                                    <!-- The button used to copy the text -->
-        
+  
                           </figcaption>
                         </figure>
                       </div>
