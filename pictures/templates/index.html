@@ -7,16 +7,16 @@
 <div class="">
 
         <!-- Looping through image   -->
-        {% comment %} <div class="container-fluid">
+        <div class="container-fluid">
           
             <div class="grid">
               <div class="grid-sizer"></div>
-                {% for x in images%}
+                {% for x in images %}
                 <img src ="{{ x.Image.url }}" class="img-fluid" alt="Responsive image">
                 <p class="lead">{{x.caption}}</p><hr>
                 {% endfor %}
               </div>          
-            </div> {% endcomment %}
+            </div>
           
        
                     <!-- Modal starts here -->
