@@ -1,12 +1,16 @@
-{% extends base.html %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-{% block content %}
-    
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
 <!--Navbar-->
 <nav class="pl-5 pr-5 navbar navbar-expand-lg navbar-dark primary-color sticky-top">
 
     <!-- Navbar brand -->
-    <a class="navbar-brand font-weight-bold" href="{% url 'index' %}">Betty's Gallery</a>
+    <a class="navbar-brand font-weight-bold">Liza's Gallery</a>
   
     <!-- Collapse button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -38,9 +42,12 @@
       <form class="form-inline" action="{% url 'search_results' %}">
         <div class="md-form my-1">
           <input class="form-control mr-sm-2" type="text" placeholder="Search Categories" aria-label="Search" name="keyword">
+        </div>
+        <!-- <button class="btn btn-outline-white btn-md my-2 my-sm-0 ml-3 btn-sm" type="submit">Search</button> -->
       </form>
     </div>
     <!-- Collapsible content -->
   </nav>
   <!--/.Navbar-->
-  {% endblock %}
+</body>
+</html>
