@@ -1,0 +1,46 @@
+h1
+{
+  color: rgb(82, 204, 163);
+}
+
+html, body {
+  position: relative;
+  min-height: 100%;
+}
+
+Within style tags in your html file
+* { box-sizing: border-box; }
+
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.grid-sizer,
+.grid-item {
+  width: 33.333%;
+}
+@media (max-width: 550px) {
+  .grid-sizer,
+  .grid-item {
+    width: 100%;
+  }
+}
+@media (min-width: 550px) and (max-width: 750px) {
+  .grid-sizer,
+  .grid-item {
+    width: 50%;
+  }
+}
+
+
+
+.grid-item {
+  float: left;
+}
+
+.grid-item img {
+  display: block;
+  max-width: 100%;
+}
