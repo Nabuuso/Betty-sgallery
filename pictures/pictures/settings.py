@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os 
+import django_heroku
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,7 +30,7 @@ SECRET_KEY = 'django-insecure-=*4ol@xnvi(aa3#o(0$sn#v31uf-bv6i3whp4hxi*bz@jf-u65
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['lizagallery.heroku.com']
 
 
 # Application definition
@@ -53,6 +55,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'pictures.urls'
@@ -82,9 +86,11 @@ WSGI_APPLICATION = 'pictures.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'pictures',
-        'USER': 'betty',
-    'PASSWORD':'website#e#'
+        'NAME': 'd5ddmgl9osjn2v',
+        'USER': 'tkfurfsqyuowkv',
+        'HOST': 'ec2-23-23-219-25.compute-1.amazonaws.com',
+        'PASSWORD': '8ca86943e1d7160ccf4e3611cfaa6bcbd1d5816d28d1d464ea7207c37cbe5ee4',
+        'PORT': '5432',       
     }
 }
 
@@ -125,9 +131,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
 MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
