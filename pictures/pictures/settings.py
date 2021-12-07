@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os 
 import django_heroku
+import dj_database_url
+from decouple import config
+# import django_heroku
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -30,7 +33,7 @@ SECRET_KEY = 'django-insecure-=*4ol@xnvi(aa3#o(0$sn#v31uf-bv6i3whp4hxi*bz@jf-u65
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['lizagallery.heroku.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -42,7 +45,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bootstrap5',
     'taggit',
     'lizgalleryapp',
 ]
@@ -83,17 +85,26 @@ WSGI_APPLICATION = 'pictures.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'd5ddmgl9osjn2v',
+#         'USER': 'tkfurfsqyuowkv',
+#         'HOST': 'ec2-23-23-219-25.compute-1.amazonaws.com',
+#         'PASSWORD': '8ca86943e1d7160ccf4e3611cfaa6bcbd1d5816d28d1d464ea7207c37cbe5ee4',
+#         'PORT': '5432',       
+#     }
+# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd5ddmgl9osjn2v',
-        'USER': 'tkfurfsqyuowkv',
-        'HOST': 'ec2-23-23-219-25.compute-1.amazonaws.com',
-        'PASSWORD': '8ca86943e1d7160ccf4e3611cfaa6bcbd1d5816d28d1d464ea7207c37cbe5ee4',
+        'NAME': 'lizagalleryapp',
+        'USER': 'wetuapp',
+        'HOST': '127.0.0.1',
+        'PASSWORD': 'wetu@#123',
         'PORT': '5432',       
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -134,6 +145,10 @@ USE_TZ = True
 # STATIC_URL = '/static/'
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 django_heroku.settings(locals())
 
 # Default primary key field type
